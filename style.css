@@ -4,6 +4,9 @@
 .em50{
     height: 50em;
 }
+.row{
+    --bs-gutter-x : 0px;
+}
 .hover-effect::after{
     content: "";
     height: 1.5px;
