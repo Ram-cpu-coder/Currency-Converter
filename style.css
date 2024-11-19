@@ -1,3 +1,23 @@
 .vh100{
     height: 100vh;
 }
+.em50{
+    height: 50em;
+}
+.hover-effect::after{
+    content: "";
+    height: 1.5px;
+    background: red;
+    position: absolute;
+    top: 30px;
+    left: 0px;
+    transition: transform 0.2s ease-in-out;
+    transform: scaleX(0);
+    /* transform-origin: center; */
+}
+
+.hover-effect:hover::after{
+    transform-origin: center;
+    width: 80%;  
+    transform: scale(1);
+}
