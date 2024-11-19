@@ -24,3 +24,6 @@
     width: 80%;  
     transform: scale(1);
 }
+.input{
+    min-width: 200px;
+}
