@@ -16,7 +16,7 @@
     />
   </head>
   <body>
-    <div class="wrapper bg-dark vh100">
+    <div class="wrapper bg-white vh100">
       <!-- nav-bar -->
       <main id="nav-bar">
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -74,7 +74,7 @@
         <div
           class="container d-flex flex-column align-items-center justify-content-center em50"
         >
-          <h1 class="text-white text-center mb-5">Currency Converter</h1>
+          <h1 class="text-dark text-center mb-5">Currency Converter</h1>
           <div
             class="main-container d-flex justify-content-center align-items-center"
           >
@@ -83,13 +83,16 @@
                 class="container d-flex justify-content-center align-items-center flex-wrap"
               >
                 <!-- input -->
-                <div class="input-container mx-2 py-2">
+                <div class="input-container mx-2 py-2 position-relative">
                   <input
                     type="number"
-                    class="form-control input"
+                    class="form-control input border border-primary"
                     required
                     aria-label="Dollar amount (with dot and two decimal places)"
                   />
+                  <div class="label text-dark position-absolute px-3 fs-5">
+                    Amount
+                  </div>
                 </div>
 
                 <!-- currency -->
