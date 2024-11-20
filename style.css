@@ -30,10 +30,19 @@
 .input::-webkit-outer-spin-button, .input::-webkit-inner-spin-button{
     -webkit-appearance: none;
 }
-
+.input{
+    transition: 0.2s ease-in-out;
+}
 .label{
     top: 10px;
+    left: 5px;
+    transition: 0.2s ease-in-out;
+    z-index: 100;
 }
 .input:valid, .input:focus{
     border: 1px solid #2993e3;
+}
+.input:valid + .label, .input:focus + .label{
+    transform: translate(0px, -20px) scale(0.9);
+    z-index: 100;
 }
