@@ -24,6 +24,9 @@
     width: 80%;  
     transform: scale(1);
 }
-.input{
+.input-container{
     min-width: 200px;
+}
+.input::-webkit-outer-spin-button, .input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
 }
