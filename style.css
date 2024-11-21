@@ -2,7 +2,7 @@
     height: 100vh;
 }
 .em30{
-    height: 30em;
+    height: 40em;
 }
 .row{
     --bs-gutter-x : 0px;
@@ -47,4 +47,9 @@
 .input:valid + .label, .input:focus + .label{
     transform: translate(0px, -20px) scale(0.9);
     z-index: 100;
+}
+
+.loading{
+    height: 50px;
+    width: 50px;
 }
