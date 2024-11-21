@@ -1,8 +1,8 @@
 .vh100{
     height: 100vh;
 }
-.em50{
-    height: 50em;
+.em30{
+    height: 30em;
 }
 .row{
     --bs-gutter-x : 0px;
