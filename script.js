@@ -14,35 +14,83 @@ currencyOptions.forEach((item) => {
 })
 
 // convert functionality 
+const majorOutputContainer = document.getElementById("major-output-container")
 const loading = document.getElementById("loading");
 const output = document.getElementById("output");
 const tBody = document.getElementById("output-table-body")
+const tR = document.getElementById("table-row");
 const convert = document.getElementById("button");
 const inputField = document.getElementById("input-field");
 
 //to check if the input field is empty or not
 convert.addEventListener("click", () => {
     if (inputField.value.trim() !== "") {
-        dataFromApi();
+
+        // dataFromApi();
+        majorOutputContainer.classList.remove("em30");
+        displayData();
     }
+
+
 })
 
 // fetching data from an api
 
 const dataFromApi = async () => {
     loading.style.display = "block";
-    try {
-        let response = await fetch(apiUrl);
-        let data = await response.json();
+    let response = await fetch(apiUrl);
+    let data = await response.json();
 
-        dataList.push(data);
+    dataList.push(data);
+    // console.log(dataList);
 
-    } catch (error) {
-        console.error("Error data fetching.", error)
-    }
 
     loading.style.display = "none";
     output.style.display = "block";
 }
 
-// 
+// displaying the data fetched from an API
+const displayData = async () => {
+
+    await dataFromApi();
+    const items = dataList[0];
+    const data = items.data;
+    let tableContent = "";
+
+    for (const item in data) {
+        if (data.hasOwnProperty(item)) {
+            const currencyItem = data[item];
+            // console.log(currencyItem.code, currencyItem.value);
+
+            tableContent += `
+                <tr>
+                        
+                          <td>${currencyItem.code}</td>
+                          <td>${currencyItem.value}</td>
+                </tr>
+                          `
+        }
+
+    }
+    // console.log(tableContent);
+
+    tBody.innerHTML = tableContent;
+}
+
+
+
+// array = [
+//     {
+//         meta: {},
+//         data: {
+//             ADA: {
+//              code: 'ADA',
+//              value: 3443,
+//                   },
+//             NPR: {
+//              code: 'NOP',
+//              value: 3443,
+//                   },
+//              },
+//     }
+// ]
