@@ -105,12 +105,12 @@
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Curency
+                    <span id="currency">Currency</span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li class="select-hover ps-2">Nepalese Rupees</li>
-                    <li class="select-hover ps-2">US Dollar</li>
-                    <li class="select-hover ps-2">Indian Rupee</li>
+                    <li class="select-hover ps-2">
+                      <span id="currency-option">NPR</span>
+                    </li>
                   </ul>
                 </div>
 
@@ -129,7 +129,7 @@
           </div>
 
           <!-- output -->
-          <main id="output" style="display: none">
+          <main id="output" style="display: none" class="mt-5">
             <table class="table">
               <thead>
                 <tr>
@@ -139,23 +139,13 @@
                   <th scope="col">Value</th>
                 </tr>
               </thead>
+              <!-- output-table-body -->
               <tbody id="output-table-body">
                 <tr>
                   <th scope="row">1</th>
                   <td>Mark</td>
                   <td>Otto</td>
                   <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
                 </tr>
               </tbody>
             </table>

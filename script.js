@@ -1,6 +1,19 @@
 console.log("It is working");
 const apiUrl = "https://api.currencyapi.com/v3/latest?apikey=cur_live_FvIHNNFlFovzJw4s0GPJEHNALPi4TxCXFGcZXVHZ";
 let dataList = [];
+
+
+// 
+const currency = document.getElementById("currency");
+const currencyOption = document.getElementById("currency-option")
+
+
+currencyOption.addEventListener("click", () => {
+    currency.innerText = currencyOption.innerText;
+    console.log("it is clicked");
+
+})
+// 
 const loading = document.getElementById("loading");
 const output = document.getElementById("output");
 const tBody = document.getElementById("output-table-body")
