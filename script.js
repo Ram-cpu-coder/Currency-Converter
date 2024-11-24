@@ -1,7 +1,7 @@
 console.log("It is working");
 const apiUrl = "https://api.currencyapi.com/v3/latest?apikey=cur_live_FvIHNNFlFovzJw4s0GPJEHNALPi4TxCXFGcZXVHZ";
 let dataList = [];
-
+const currencyList = [];
 
 
 
@@ -19,8 +19,8 @@ convert.addEventListener("click", () => {
     if (inputField.value.trim() == "") {
         alert("Please Enter the value!!")
     } else {
-        majorOutputContainer.classList.remove("em30");
-        displayData();
+
+        // displayData();
     }
 })
 
@@ -43,6 +43,7 @@ const dataFromApi = async () => {
 const displayData = async () => {
     await dataFromApi();
     let tableContent = "";
+
     const items = dataList[0];
     const data = items.data;
     for (const item in data) {
@@ -50,8 +51,7 @@ const displayData = async () => {
             const currencyItem = data[item];
             const currencyCode = currencyItem.code;
             const currencyValue = currencyItem.value;
-            // console.log(currencyCode);
-            // console.log(currencyValue);
+
             tableContent += `
             
             <tr>
@@ -60,24 +60,36 @@ const displayData = async () => {
             </tr>
             `
 
+            currencyList.push(currencyCode);
+
         }
     }
     tBody.innerHTML = tableContent;
+    majorOutputContainer.classList.remove("em30");
 }
 
-// displayData()
+// console.log(currencyList);
+displayData()
 
+// ===============================================
 
 // currency button functionality
 
 
-// const currency = document.getElementById("currency");
-// const currencyOptions = document.querySelectorAll(".currency-option")
-// const options = document.getElementById("options");
+const currency = document.getElementById("currency");
+const currencyOptions = document.querySelectorAll(".currency-option")
+const options = document.getElementById("options");
+currency.addEventListener("click", () => {
+    currencyList.forEach((item, index) => {
 
-// options.innerHTML +=
-// `
-// <li class="select-hover ps-2 currency-option">
-// <span id="code">${currencyCode}</span>
-// </li>
-// `
+        options.innerHTML +=
+            `
+        <li class="select-hover ps-2 currency-option">
+        <span id="code">${item}</span>
+        </li>
+        `
+        // console.log(item);
+    }
+    )
+}
+)
