@@ -102,6 +102,7 @@
                 <!-- currency -->
                 <div class="dropdown mx-2 py-2">
                   <button
+                    id="currency-btn"
                     class="btn btn-secondary dropdown-toggle"
                     type="button"
                     data-bs-toggle="dropdown"
@@ -110,9 +111,28 @@
                     <span id="currency">Currency</span>
                   </button>
                   <ul class="dropdown-menu" id="options">
-                    <li class="select-hover ps-2 currency-option">
+                    <!-- search bar -->
+
+                    <input
+                      class="form-control"
+                      list="datalistOptions"
+                      id="exampleDataList"
+                      placeholder="Type to search..."
+                    />
+                    <datalist id="datalistOptions">
+                      <option value="San Francisco"></option>
+                      <option value="New York"></option>
+                      <option value="Seattle"></option>
+                      <option value="Los Angeles"></option>
+                      <option value="Chicago"></option>
+                    </datalist>
+                    <!--  -->
+                    <!-- <li
+                      class="select-hover ps-2 currency-option"
+                      id="currency-option"
+                    >
                       <span id="code">NPR</span>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
 

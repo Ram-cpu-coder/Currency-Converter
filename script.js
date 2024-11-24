@@ -77,19 +77,25 @@ displayData()
 
 
 const currency = document.getElementById("currency");
-const currencyOptions = document.querySelectorAll(".currency-option")
+const currencyOptions = document.querySelector("#currency-option")
 const options = document.getElementById("options");
-currency.addEventListener("click", () => {
+const currencyBtn = document.getElementById("currency-btn");
+const codeToBeShownAfterSelection = document.getElementById("code");
+currencyBtn.addEventListener("click", (e) => {
     currencyList.forEach((item, index) => {
 
         options.innerHTML +=
             `
-        <li class="select-hover ps-2 currency-option">
+        <li class="select-hover ps-2 currency-option text-center" id="currency-option">
         <span id="code">${item}</span>
         </li>
         `
         // console.log(item);
     }
     )
+
+    // codeToBeShownAfterSelection.addEventListener("click", () => {
+    //     currency.innerHTML = currencyOptions;
+    // })
 }
 )
