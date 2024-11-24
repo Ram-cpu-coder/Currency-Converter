@@ -3,25 +3,28 @@ const apiUrl = "https://api.currencyapi.com/v3/latest?apikey=cur_live_FvIHNNFlFo
 let dataList = [];
 
 
-// 
+// currency button functionality 
 const currency = document.getElementById("currency");
-const currencyOption = document.getElementById("currency-option")
+const currencyOptions = document.querySelectorAll(".currency-option")
 
-
-currencyOption.addEventListener("click", () => {
-    currency.innerText = currencyOption.innerText;
-    console.log("it is clicked");
-
+currencyOptions.forEach((item) => {
+    item.addEventListener("click", () => {
+        currency.innerText = item.innerText;
+    })
 })
-// 
+
+// convert functionality 
 const loading = document.getElementById("loading");
 const output = document.getElementById("output");
 const tBody = document.getElementById("output-table-body")
 const convert = document.getElementById("button");
+const inputField = document.getElementById("input-field");
 
+//to check if the input field is empty or not
 convert.addEventListener("click", () => {
-    console.log("The button is clicked");
-
+    if (inputField.value.trim() !== "") {
+        dataFromApi();
+    }
 })
 
 // fetching data from an api
@@ -41,6 +44,5 @@ const dataFromApi = async () => {
     loading.style.display = "none";
     output.style.display = "block";
 }
-dataFromApi();
 
 // 

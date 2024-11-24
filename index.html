@@ -78,7 +78,7 @@
           <div
             class="main-container d-flex justify-content-center align-items-center"
           >
-            <form action="/action.php" method="get">
+            <form action="" method="get">
               <div
                 class="container d-flex justify-content-center align-items-center flex-wrap"
               >
@@ -87,6 +87,7 @@
                   <input
                     type="number"
                     class="form-control input border border-primary"
+                    id="input-field"
                     required
                     aria-label="Dollar amount (with dot and two decimal places)"
                   />
@@ -108,9 +109,9 @@
                     <span id="currency">Currency</span>
                   </button>
                   <ul class="dropdown-menu">
-                    <li class="select-hover ps-2">
-                      <span id="currency-option">NPR</span>
-                    </li>
+                    <li class="select-hover ps-2 currency-option">NPR</li>
+                    <li class="select-hover ps-2 currency-option">INR</li>
+                    <li class="select-hover ps-2 currency-option">USD</li>
                   </ul>
                 </div>
 
