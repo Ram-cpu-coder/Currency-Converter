@@ -3,15 +3,7 @@ const apiUrl = "https://api.currencyapi.com/v3/latest?apikey=cur_live_FvIHNNFlFo
 let dataList = [];
 
 
-// currency button functionality 
-const currency = document.getElementById("currency");
-const currencyOptions = document.querySelectorAll(".currency-option")
 
-currencyOptions.forEach((item) => {
-    item.addEventListener("click", () => {
-        currency.innerText = item.innerText;
-    })
-})
 
 // convert functionality 
 const majorOutputContainer = document.getElementById("major-output-container")
@@ -24,14 +16,12 @@ const inputField = document.getElementById("input-field");
 
 //to check if the input field is empty or not
 convert.addEventListener("click", () => {
-    if (inputField.value.trim() !== "") {
-
-        // dataFromApi();
+    if (inputField.value.trim() == "") {
+        alert("Please Enter the value!!")
+    } else {
         majorOutputContainer.classList.remove("em30");
         displayData();
     }
-
-
 })
 
 // fetching data from an api
@@ -51,46 +41,43 @@ const dataFromApi = async () => {
 
 // displaying the data fetched from an API
 const displayData = async () => {
-
     await dataFromApi();
+    let tableContent = "";
     const items = dataList[0];
     const data = items.data;
-    let tableContent = "";
-
     for (const item in data) {
         if (data.hasOwnProperty(item)) {
             const currencyItem = data[item];
-            // console.log(currencyItem.code, currencyItem.value);
-
+            const currencyCode = currencyItem.code;
+            const currencyValue = currencyItem.value;
+            // console.log(currencyCode);
+            // console.log(currencyValue);
             tableContent += `
-                <tr>
-                        
-                          <td>${currencyItem.code}</td>
-                          <td>${currencyItem.value}</td>
-                </tr>
-                          `
+            
+            <tr>
+            <td>${currencyCode}</td>
+            <td>${currencyValue}</td>
+            </tr>
+            `
+
         }
-
     }
-    // console.log(tableContent);
-
     tBody.innerHTML = tableContent;
 }
 
+// displayData()
 
 
-// array = [
-//     {
-//         meta: {},
-//         data: {
-//             ADA: {
-//              code: 'ADA',
-//              value: 3443,
-//                   },
-//             NPR: {
-//              code: 'NOP',
-//              value: 3443,
-//                   },
-//              },
-//     }
-// ]
+// currency button functionality
+
+
+// const currency = document.getElementById("currency");
+// const currencyOptions = document.querySelectorAll(".currency-option")
+// const options = document.getElementById("options");
+
+// options.innerHTML +=
+// `
+// <li class="select-hover ps-2 currency-option">
+// <span id="code">${currencyCode}</span>
+// </li>
+// `
