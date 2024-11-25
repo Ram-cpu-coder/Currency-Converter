@@ -81,8 +81,8 @@ const currencyOptions = document.querySelector("#currency-option")
 const options = document.getElementById("options");
 const currencyBtn = document.getElementById("currency-btn");
 const codeToBeShownAfterSelection = document.getElementById("code");
-currencyBtn.addEventListener("click", (e) => {
-    currencyList.forEach((item, index) => {
+currencyBtn.addEventListener("click", () => {
+    currencyList.forEach((item) => {
 
         options.innerHTML +=
             `
@@ -99,3 +99,25 @@ currencyBtn.addEventListener("click", (e) => {
     // })
 }
 )
+
+// ========================================
+// search functionality
+
+const searchElm = document.getElementById("search");
+searchElm.addEventListener("keyup", (e) => {
+    const filteredCurrencyCode = currencyList.filter((item) => {
+        const currCode = item.toLowerCase();
+        return currCode.includes(e.target.value.toLowerCase());
+    })
+    // -----------------------display functionality remaining---
+})
+
+
+// ==============================================
+
+// display in currency button what ever clicked
+
+codeToBeShownAfterSelection.addEventListener("click", () => {
+    console.log("clicked");
+
+})

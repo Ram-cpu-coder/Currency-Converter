@@ -100,7 +100,7 @@
                 </div>
 
                 <!-- currency -->
-                <div class="dropdown mx-2 py-2">
+                <!-- <div class="dropdown mx-2 py-2">
                   <button
                     id="currency-btn"
                     class="btn btn-secondary dropdown-toggle"
@@ -111,30 +111,31 @@
                     <span id="currency">Currency</span>
                   </button>
                   <ul class="dropdown-menu" id="options">
-                    <!-- search bar -->
+                   
+                    search bar
 
                     <input
                       class="form-control"
                       list="datalistOptions"
-                      id="exampleDataList"
+                      id="search"
                       placeholder="Type to search..."
                     />
-                    <datalist id="datalistOptions">
-                      <option value="San Francisco"></option>
-                      <option value="New York"></option>
-                      <option value="Seattle"></option>
-                      <option value="Los Angeles"></option>
-                      <option value="Chicago"></option>
-                    </datalist>
-                    <!--  -->
-                    <!-- <li
-                      class="select-hover ps-2 currency-option"
-                      id="currency-option"
-                    >
-                      <span id="code">NPR</span>
-                    </li> -->
+
+                    
                   </ul>
-                </div>
+                </div> -->
+
+                <form name="dropForm">
+                  <select
+                    name="dropSelect"
+                    class="btn btn-secondary dropdown-toggle"
+                  >
+                    <option value="P">Currency</option>
+                    <option value="A">Option 1</option>
+                    <option value="B">Option 2</option>
+                    <option value="C">Option 3</option>
+                  </select>
+                </form>
 
                 <!-- button: submit -->
                 <div class="submit mx-2 py-2">
