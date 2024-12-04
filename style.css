@@ -65,3 +65,9 @@ body{
 }
 
 
+.dropdown{
+    width: 200px;
+    height: auto;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}

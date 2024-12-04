@@ -100,42 +100,18 @@
                 </div>
 
                 <!-- currency -->
-                <!-- <div class="dropdown mx-2 py-2">
-                  <button
-                    id="currency-btn"
-                    class="btn btn-secondary dropdown-toggle"
-                    type="button"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    <span id="currency">Currency</span>
-                  </button>
-                  <ul class="dropdown-menu" id="options">
-                   
-                    search bar
-
-                    <input
-                      class="form-control"
-                      list="datalistOptions"
-                      id="search"
-                      placeholder="Type to search..."
-                    />
-
-                    
-                  </ul>
-                </div> -->
-
-                <form name="dropForm">
-                  <select
-                    name="dropSelect"
-                    class="btn btn-secondary dropdown-toggle"
-                  >
-                    <option value="P">Currency</option>
-                    <option value="A">Option 1</option>
-                    <option value="B">Option 2</option>
-                    <option value="C">Option 3</option>
-                  </select>
-                </form>
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  id="currency-btn"
+                >
+                  Currency
+                </button>
+                <div
+                  class="modal-dialog modal-dialog currencyList"
+                  id="currencyList"
+                  style="display: none"
+                ></div>
 
                 <!-- button: submit -->
                 <div class="submit mx-2 py-2">
@@ -147,12 +123,12 @@
             </form>
           </div>
           <!-- loading -->
-          <div id="loading" class="mt-5" style="display: none">
+          <div id="loading" class="mt-5">
             <img src="./loading.gif" class="loading" />
           </div>
 
           <!-- output -->
-          <main id="output" style="display: none" class="mt-5">
+          <main id="output" class="mt-5" style="display: none">
             <table class="table">
               <thead>
                 <tr>

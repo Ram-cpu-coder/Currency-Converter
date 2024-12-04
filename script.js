@@ -1,59 +1,71 @@
 console.log("It is working");
-const apiUrl = "https://api.currencyapi.com/v3/latest?apikey=cur_live_FvIHNNFlFovzJw4s0GPJEHNALPi4TxCXFGcZXVHZ";
-let dataList = [];
+// const apiUrl = "https://api.currencyapi.com/v3/latest?apikey=cur_live_S3uLlpuLxlR6AJgY2mzjPjyKm6mX8Cox6c9UwrTe";
+let dataList = {
+    "ADA": {
+        "code": "ADA",
+        "value": 0.9268621256
+    },
+    "AED": {
+        "code": "AED",
+        "value": 3.6724106328
+    },
+    "AFN": {
+        "code": "AFN",
+        "value": 67.9569382546
+    },
+    "ALL": {
+        "code": "ALL",
+        "value": 92.5572394152
+    },
+    "AMD": {
+        "code": "AMD",
+        "value": 392.7355219814
+    },
+    "ANG": {
+        "code": "ANG",
+        "value": 1.7848002816
+    }
+}
+
 const currencyList = [];
+// console.log(currencyList);
 
 
 
 // convert functionality 
-const majorOutputContainer = document.getElementById("major-output-container")
+const majorOutputContainer = document.getElementById("major-output-container");
+const outputAreaElm = document.getElementById("output");
 const loading = document.getElementById("loading");
-const output = document.getElementById("output");
-const tBody = document.getElementById("output-table-body")
-const tR = document.getElementById("table-row");
+let tBody = document.getElementById("output-table-body")
 const convert = document.getElementById("button");
 const inputField = document.getElementById("input-field");
-
-//to check if the input field is empty or not
 convert.addEventListener("click", () => {
-    if (inputField.value.trim() == "") {
-        alert("Please Enter the value!!")
-    } else {
-
-        // displayData();
-    }
+    outputAreaElm.style.display = "block";
+    displayData();
 })
 
-// fetching data from an api
-
-const dataFromApi = async () => {
-    loading.style.display = "block";
-    let response = await fetch(apiUrl);
-    let data = await response.json();
-
-    dataList.push(data);
-    // console.log(dataList);
+//to check if the input field is empty or not
 
 
-    loading.style.display = "none";
-    output.style.display = "block";
-}
+// =======================================================
 
 // displaying the data fetched from an API
-const displayData = async () => {
-    await dataFromApi();
+const displayData = () => {
     let tableContent = "";
-
-    const items = dataList[0];
-    const data = items.data;
-    for (const item in data) {
-        if (data.hasOwnProperty(item)) {
-            const currencyItem = data[item];
+    tBody.innerHTML = "";
+    for (const item in dataList) {
+        if (dataList.hasOwnProperty(item)) {
+            const currencyItem = dataList[item];
             const currencyCode = currencyItem.code;
             const currencyValue = currencyItem.value;
 
+            // console.log(currencyItem);
+            // console.log(currencyCode);
+            // console.log(currencyValue);
+
+
             tableContent += `
-            
+
             <tr>
             <td>${currencyCode}</td>
             <td>${currencyValue}</td>
@@ -63,61 +75,27 @@ const displayData = async () => {
             currencyList.push(currencyCode);
 
         }
+
     }
-    tBody.innerHTML = tableContent;
+    // console.log(tableContent);
+
+    tBody.innerHTML += tableContent;
+
     majorOutputContainer.classList.remove("em30");
 }
-
-// console.log(currencyList);
-displayData()
 
 // ===============================================
 
 // currency button functionality
 
 
-const currency = document.getElementById("currency");
-const currencyOptions = document.querySelector("#currency-option")
-const options = document.getElementById("options");
-const currencyBtn = document.getElementById("currency-btn");
-const codeToBeShownAfterSelection = document.getElementById("code");
-currencyBtn.addEventListener("click", () => {
-    currencyList.forEach((item) => {
-
-        options.innerHTML +=
-            `
-        <li class="select-hover ps-2 currency-option text-center" id="currency-option">
-        <span id="code">${item}</span>
-        </li>
-        `
-        // console.log(item);
-    }
-    )
-
-    // codeToBeShownAfterSelection.addEventListener("click", () => {
-    //     currency.innerHTML = currencyOptions;
-    // })
-}
-)
 
 // ========================================
 // search functionality
 
-const searchElm = document.getElementById("search");
-searchElm.addEventListener("keyup", (e) => {
-    const filteredCurrencyCode = currencyList.filter((item) => {
-        const currCode = item.toLowerCase();
-        return currCode.includes(e.target.value.toLowerCase());
-    })
-    // -----------------------display functionality remaining---
-})
 
 
 // ==============================================
 
 // display in currency button what ever clicked
 
-codeToBeShownAfterSelection.addEventListener("click", () => {
-    console.log("clicked");
-
-})
