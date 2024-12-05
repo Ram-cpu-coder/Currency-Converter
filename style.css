@@ -58,16 +58,8 @@ body{
     height: 50px;
     width: 50px;
 }
+
 .select-hover:hover{
     background: #2993e3;
-    padding-left: 5px;
     color: white;
-}
-
-
-.dropdown{
-    width: 200px;
-    height: auto;
-    overflow-y: scroll;
-    overflow-x: hidden;
 }

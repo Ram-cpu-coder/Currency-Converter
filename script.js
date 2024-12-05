@@ -41,7 +41,7 @@ const convert = document.getElementById("button");
 const inputField = document.getElementById("input-field");
 convert.addEventListener("click", () => {
     outputAreaElm.style.display = "block";
-    displayData();
+    tBody.innerHTML += tableContent;
 })
 
 //to check if the input field is empty or not
@@ -50,8 +50,8 @@ convert.addEventListener("click", () => {
 // =======================================================
 
 // displaying the data fetched from an API
+let tableContent = "";
 const displayData = () => {
-    let tableContent = "";
     tBody.innerHTML = "";
     for (const item in dataList) {
         if (dataList.hasOwnProperty(item)) {
@@ -79,16 +79,34 @@ const displayData = () => {
     }
     // console.log(tableContent);
 
-    tBody.innerHTML += tableContent;
+
 
     majorOutputContainer.classList.remove("em30");
 }
-
+displayData();
 // ===============================================
 
 // currency button functionality
 
+const currencyBtnElm = document.querySelector("#currency-btn")
+let currencyItemElm = document.querySelector("#currencyItem");
+// showCurrencyList Function
+const showCurrencyList = () => {
+    // currencyItemElm.innerHTML = "";
+    let currencyListContent = "";
+    currencyList.map((item) => {
+        currencyListContent =
+            `
+        <li class="select-hover">${item}</li>
+        `
+        currencyItemElm.innerHTML += currencyListContent;
+    })
 
+}
+
+// showing the currency list 
+
+showCurrencyList();
 
 // ========================================
 // search functionality

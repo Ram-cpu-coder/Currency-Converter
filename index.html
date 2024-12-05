@@ -14,6 +14,10 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
   </head>
   <body>
     <div class="wrapper bg-white vh100">
@@ -99,20 +103,21 @@
                   </div>
                 </div>
 
-                <!-- currency -->
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  id="currency-btn"
-                >
-                  Currency
-                </button>
-                <div
-                  class="modal-dialog modal-dialog currencyList"
-                  id="currencyList"
-                  style="display: none"
-                ></div>
-
+                <div class="dropdown">
+                  <!-- currency -->
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="currency-btn"
+                    data-bs-toggle="dropdown"
+                  >
+                    Currency <i class="bi bi-caret-down"></i>
+                  </button>
+                  <!-- currency output -->
+                  <ul class="dropdown-menu text-center" id="currencyItem">
+                    <!-- <li>Action</li> -->
+                  </ul>
+                </div>
                 <!-- button: submit -->
                 <div class="submit mx-2 py-2">
                   <button type="Submit" class="btn btn-primary" id="button">
