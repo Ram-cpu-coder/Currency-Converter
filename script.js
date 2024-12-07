@@ -73,14 +73,10 @@ const displayData = () => {
             `
 
             currencyList.push(currencyCode);
-
+            // console.log(currencyCode)
         }
 
     }
-    // console.log(tableContent);
-
-
-
     majorOutputContainer.classList.remove("em30");
 }
 displayData();
@@ -90,6 +86,8 @@ displayData();
 
 const currencyBtnElm = document.querySelector("#currency-btn")
 let currencyItemElm = document.querySelector("#currencyItem");
+const currency_CodeElm = document.getElementById("currency_Code")
+const showSelectedCurrencyCodeElm = document.getElementById("selectedCurrencyCode");
 // showCurrencyList Function
 const showCurrencyList = () => {
     // currencyItemElm.innerHTML = "";
@@ -97,13 +95,22 @@ const showCurrencyList = () => {
     currencyList.map((item) => {
         currencyListContent =
             `
-        <li class="select-hover">${item}</li>
+        <li class="select-hover" id ="currency_Code">${item}</li>
         `
         currencyItemElm.innerHTML += currencyListContent;
     })
 
 }
+// const showSelectedCurrencyCode = () => {
+//     showSelectedCurrencyCodeElm.innerHTML = ""
+//     // showSelectedCurrencyCodeElm.innerHTML = ;
+// }
+currencyItemElm.addEventListener("click", (e) => {
+    if (e.target && e.target.matches("li")) {
+        showSelectedCurrencyCodeElm.innerHTML = e.target.innerText;
 
+    }
+})
 // showing the currency list 
 
 showCurrencyList();
