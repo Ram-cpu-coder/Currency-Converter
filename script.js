@@ -30,7 +30,11 @@ let dataList = {
 const currencyList = [];
 // console.log(currencyList);
 
-
+const currencyBtnElm = document.querySelector("#currency-btn")
+let currencyItemElm = document.querySelector("#currencyItem");
+const currency_CodeElm = document.getElementById("currency_Code")
+const showSelectedCurrencyCodeElm = document.getElementById("selectedCurrencyCode");
+let selectedLi;
 
 // convert functionality 
 const majorOutputContainer = document.getElementById("major-output-container");
@@ -38,18 +42,12 @@ const outputAreaElm = document.getElementById("output");
 const loading = document.getElementById("loading");
 let tBody = document.getElementById("output-table-body")
 const convert = document.getElementById("button");
-const inputField = document.getElementById("input-field");
-convert.addEventListener("click", () => {
-    outputAreaElm.style.display = "block";
-    tBody.innerHTML += tableContent;
-})
-
-//to check if the input field is empty or not
 
 
 // =======================================================
 
 // displaying the data fetched from an API
+
 let tableContent = "";
 const displayData = () => {
     tBody.innerHTML = "";
@@ -58,11 +56,6 @@ const displayData = () => {
             const currencyItem = dataList[item];
             const currencyCode = currencyItem.code;
             const currencyValue = currencyItem.value;
-
-            // console.log(currencyItem);
-            // console.log(currencyCode);
-            // console.log(currencyValue);
-
 
             tableContent += `
 
@@ -77,17 +70,26 @@ const displayData = () => {
         }
 
     }
+    loading.style.display = "none";
+    outputAreaElm.style.display = "block";
     majorOutputContainer.classList.remove("em30");
+    tBody.innerHTML += tableContent;
 }
 displayData();
 // ===============================================
 
+
+// convert functionality
+convert.addEventListener("click", () => {
+    // convertFunction();
+    // outputAreaElm.style.display = "block";
+
+})
+
+//=====================================================
+
 // currency button functionality
 
-const currencyBtnElm = document.querySelector("#currency-btn")
-let currencyItemElm = document.querySelector("#currencyItem");
-const currency_CodeElm = document.getElementById("currency_Code")
-const showSelectedCurrencyCodeElm = document.getElementById("selectedCurrencyCode");
 // showCurrencyList Function
 const showCurrencyList = () => {
     // currencyItemElm.innerHTML = "";
@@ -101,19 +103,18 @@ const showCurrencyList = () => {
     })
 
 }
-// const showSelectedCurrencyCode = () => {
-//     showSelectedCurrencyCodeElm.innerHTML = ""
-//     // showSelectedCurrencyCodeElm.innerHTML = ;
-// }
+
 currencyItemElm.addEventListener("click", (e) => {
     if (e.target && e.target.matches("li")) {
         showSelectedCurrencyCodeElm.innerHTML = e.target.innerText;
-
+        selectedLi = showSelectedCurrencyCodeElm.innerHTML;
     }
-})
-// showing the currency list 
 
+})
+
+// showing the currency list
 showCurrencyList();
+
 
 // ========================================
 // search functionality
@@ -122,5 +123,15 @@ showCurrencyList();
 
 // ==============================================
 
-// display in currency button what ever clicked
+// Calculation Part
+const inputField = document.getElementById("input-field");
+const convertFunction = () => {
+    inputField.addEventListener("input", () => {
+    })
+    const amount = parseFloat(inputField.value);
+    const currencyRate = dataList[selectedLi]?.value;
 
+    const result = currencyRate * amount;
+
+    outputAreaElm.innerHTML = result;
+}

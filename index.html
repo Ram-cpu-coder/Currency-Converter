@@ -85,7 +85,7 @@
           >
             <form action="" method="get">
               <div
-                class="container d-flex justify-content-center align-items-center flex-wrap"
+                class="container d-flex flex-column justify-content-center align-items-center flex-wrap"
               >
                 <!-- input -->
                 <div class="input-container mx-2 py-2 position-relative">
@@ -111,8 +111,10 @@
                     id="currency-btn"
                     data-bs-toggle="dropdown"
                   >
-                    <span id="selectedCurrencyCode">Currency</span
-                    ><i class="bi bi-caret-down"></i>
+                    <span id="selectedCurrencyCode">Currency</span>&nbsp<i
+                      class="bi bi-caret-down"
+                      id="removing_icon"
+                    ></i>
                   </button>
                   <!-- currency output -->
                   <ul class="dropdown-menu text-center" id="currencyItem">
@@ -123,8 +125,27 @@
                 <!-- button: submit -->
                 <div class="submit mx-2 py-2">
                   <button type="Submit" class="btn btn-primary" id="button">
-                    Convert
+                    <i class="bi bi-arrow-left-right"></i>
                   </button>
+                </div>
+                <!--  -->
+                <div class="dropdown">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    id="currency-btn"
+                    data-bs-toggle="dropdown"
+                  >
+                    <span id="selectedCurrencyCode">Currency</span>&nbsp<i
+                      class="bi bi-caret-down"
+                      id="removing_icon"
+                    ></i>
+                  </button>
+                  <!-- currency output -->
+                  <ul class="dropdown-menu text-center" id="toBeConverted">
+                    <!-- <li>Action</li> -->
+                    <!-- <li class="select-hover" id="currency_Code"></li> -->
+                  </ul>
                 </div>
               </div>
             </form>
