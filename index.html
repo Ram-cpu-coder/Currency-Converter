@@ -83,33 +83,20 @@
           <div
             class="main-container d-flex justify-content-center align-items-center"
           >
-            <form action="" method="get">
+            <div>
               <div
-                class="container d-flex flex-column justify-content-center align-items-center flex-wrap"
+                class="container d-flex flex-column justify-content-center align-items-center flex-wrap gap-4"
               >
-                <!-- input -->
-                <div class="input-container mx-2 py-2 position-relative">
-                  <input
-                    type="number"
-                    class="form-control input border border-primary"
-                    id="input-field"
-                    required
-                    aria-label="Dollar amount (with dot and two decimal places)"
-                  />
-                  <div
-                    class="label text-dark position-absolute px-2 fs-5 bg-white"
-                  >
-                    Amount
-                  </div>
-                </div>
-
                 <!-- currency -->
-                <div class="dropdown">
+                <div
+                  class="dropdown d-flex flex-column justify-content-center align-items-center"
+                >
                   <button
                     type="button"
-                    class="btn btn-secondary"
+                    class="btn btn-secondary d-flex flex-row justify-content-around align-items-center button"
                     id="currency-btn"
                     data-bs-toggle="dropdown"
+                    style="width: 200%"
                   >
                     <span id="selectedCurrencyCode">Currency</span>&nbsp<i
                       class="bi bi-caret-down"
@@ -117,11 +104,26 @@
                     ></i>
                   </button>
                   <!-- currency output -->
-                  <ul class="dropdown-menu text-center" id="currencyItem">
+                  <ul class="dropdown-menu text-center" style="width: 200%;" id="currencyItem">
                     <!-- <li>Action</li> -->
-                    <!-- <li class="select-hover" id="currency_Code"></li> -->
+                    <li class="" id="currency_Code"><input type="search" name="query" placeholder="Search" class="px-2 border-0 search"></li>
                   </ul>
                 </div>
+                <!-- input -->
+                <div class="input-container mx-2 py-2 position-relative d-flex justify-content-center align-items-center">
+                  <input
+                    type="number"
+                    class="input px-3"
+                    id="input-field"
+                    required
+                    aria-label="Dollar amount (with dot and two decimal places)"
+                  />
+                  <div
+                    class="label text-dark position-absolute px-2 fs-5 bg-white">
+                    Amount
+                  </div>
+                </div>
+
                 <!-- button: submit -->
                 <div class="submit mx-2 py-2">
                   <button type="Submit" class="btn btn-primary" id="button">
@@ -129,18 +131,20 @@
                   </button>
                 </div>
                 <!--  -->
-                <div class="dropdown">
+                <!-- <div
+                  class="dropdown d-flex flex-column justify-content-center align-items-center"
+                >
                   <button
                     type="button"
-                    class="btn btn-secondary"
+                    class="btn btn-secondary d-flex flex-row justify-content-around align-items-center"
                     id="currency-btn"
                     data-bs-toggle="dropdown"
+                    style="width: 200%"
                   >
-                    <span id="selectedCurrencyCode">Currency</span>&nbsp<i
-                      class="bi bi-caret-down"
-                      id="removing_icon"
-                    ></i>
-                  </button>
+                    <span id="selectedCurrencyCode">Currency</span>
+                    &nbsp
+                    <i class="bi bi-caret-down" id="removing_icon"></i>
+                  </button> -->
                   <!-- currency output -->
                   <ul class="dropdown-menu text-center" id="toBeConverted">
                     <!-- <li>Action</li> -->
@@ -148,7 +152,7 @@
                   </ul>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
           <!-- loading -->
           <div id="loading" class="mt-5">
@@ -156,12 +160,13 @@
           </div>
 
           <!-- output -->
-          <main id="output" class="mt-5" style="display: none">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th scope="col">Currency Code</th>
-                  <th scope="col">Value</th>
+          <main class="mt-5 d-flex flex-column justify-content-center align-items-center">
+            <table class="text-center w-75">
+              <thead class="">
+                <tr scope="row">
+                  <th class="col-6">Currency Code</th>
+                  <hr>
+                  <th class="col-6">Value</th>
                 </tr>
               </thead>
               <!-- output-table-body -->

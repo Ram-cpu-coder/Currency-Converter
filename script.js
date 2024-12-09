@@ -27,6 +27,16 @@ let dataList = {
     }
 }
 
+let resultValue = Object.keys(dataList).map(item => {
+    return {
+        "code": item,
+        "value": 0
+    }
+})
+
+console.log(resultValue);
+
+
 const currencyList = [];
 // console.log(currencyList);
 
@@ -48,30 +58,42 @@ const convert = document.getElementById("button");
 
 // displaying the data fetched from an API
 
-let tableContent = "";
 const displayData = () => {
+    let tableContent = "";
     tBody.innerHTML = "";
-    for (const item in dataList) {
-        if (dataList.hasOwnProperty(item)) {
-            const currencyItem = dataList[item];
-            const currencyCode = currencyItem.code;
-            const currencyValue = currencyItem.value;
+    for (const item of resultValue) {
+        currencyList.push(item.code);
 
-            tableContent += `
-
+        tableContent += `
             <tr>
-            <td>${currencyCode}</td>
-            <td>${currencyValue}</td>
+            <td>
+                ${item.code}
+                </td>
+                <td>
+                    ${item.value.toFixed(3)}
+                </td>
             </tr>
-            `
+        `
 
-            currencyList.push(currencyCode);
-            // console.log(currencyCode)
-        }
+        // if (dataList.hasOwnProperty(item)) {
+        //     const currencyItem = dataList[item];
+        //     const currencyCode = currencyItem.code;
+        //     const currencyValue = currencyItem.value;
+
+        //     tableContent += `
+
+        //     <tr>
+        //     <td>${currencyCode}</td>
+        //     <td><span id="outputValue">0.00</span></td>
+        //     </tr>
+        //     `
+
+        //     currencyList.push(currencyCode);
+        //     // console.log(currencyCode)
+        // }
 
     }
     loading.style.display = "none";
-    outputAreaElm.style.display = "block";
     majorOutputContainer.classList.remove("em30");
     tBody.innerHTML += tableContent;
 }
@@ -81,9 +103,7 @@ displayData();
 
 // convert functionality
 convert.addEventListener("click", () => {
-    // convertFunction();
-    // outputAreaElm.style.display = "block";
-
+    convertFunction();
 })
 
 //=====================================================
@@ -125,13 +145,18 @@ showCurrencyList();
 
 // Calculation Part
 const inputField = document.getElementById("input-field");
+const outputValue = document.getElementById("outputValue");
 const convertFunction = () => {
     inputField.addEventListener("input", () => {
     })
     const amount = parseFloat(inputField.value);
     const currencyRate = dataList[selectedLi]?.value;
 
-    const result = currencyRate * amount;
+    const usdaVlue = currencyRate * amount;
 
-    outputAreaElm.innerHTML = result;
+    resultValue.forEach(item => {
+        item.value = (usdaVlue / dataList[item.code]?.value);
+    })
+
+    displayData();
 }

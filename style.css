@@ -24,12 +24,11 @@ body{
 
 .hover-effect:hover::after{
     transform-origin: center;
-    width: 80%;  
+    width: 100%;  
     transform: scale(1);
 }
 .input-container{
-    min-width: 200px;
-
+    min-width: 100%;
 }
 
 .input::-webkit-outer-spin-button, .input::-webkit-inner-spin-button{
@@ -37,17 +36,18 @@ body{
 }
 .input{
     transition: 0.2s ease-in-out;
-    z-index: 10000;
+    min-height: 40px;
 }
 .label{
     top: 10px;
-    left: 5px;
+    left: 10px;
     transition: 0.2s ease-in-out;
     z-index: 100;
     pointer-events: none;
+    z-index: 10;
 }
 .input:valid, .input:focus{
-    border: 1px solid #2993e3;
+    border-bottom: 1px solid #2993e3;
 }
 .input:valid + .label, .input:focus + .label{
     transform: translate(0px, -20px) scale(0.9);
@@ -62,4 +62,14 @@ body{
 .select-hover:hover{
     background: #2993e3;
     color: white;
+}
+.button{
+    min-width: 100%;
+}
+
+.search:focus{
+outline:none;
+}
+.search::placeholder{
+    text-align: center;
 }
