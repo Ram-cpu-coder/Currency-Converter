@@ -34,7 +34,6 @@ let resultValue = Object.keys(dataList).map(item => {
     }
 })
 
-console.log(resultValue);
 
 
 const currencyList = [];
@@ -75,22 +74,7 @@ const displayData = () => {
             </tr>
         `
 
-        // if (dataList.hasOwnProperty(item)) {
-        //     const currencyItem = dataList[item];
-        //     const currencyCode = currencyItem.code;
-        //     const currencyValue = currencyItem.value;
 
-        //     tableContent += `
-
-        //     <tr>
-        //     <td>${currencyCode}</td>
-        //     <td><span id="outputValue">0.00</span></td>
-        //     </tr>
-        //     `
-
-        //     currencyList.push(currencyCode);
-        //     // console.log(currencyCode)
-        // }
 
     }
     loading.style.display = "none";
@@ -111,10 +95,10 @@ convert.addEventListener("click", () => {
 // currency button functionality
 
 // showCurrencyList Function
-const showCurrencyList = () => {
-    // currencyItemElm.innerHTML = "";
+const showCurrencyList = (fl) => {
     let currencyListContent = "";
-    currencyList.map((item) => {
+    currencyItemElm.innerHTML = "";
+    fl.map((item) => {
         currencyListContent =
             `
         <li class="select-hover" id ="currency_Code">${item}</li>
@@ -123,7 +107,7 @@ const showCurrencyList = () => {
     })
 
 }
-
+showCurrencyList(currencyList);
 currencyItemElm.addEventListener("click", (e) => {
     if (e.target && e.target.matches("li")) {
         showSelectedCurrencyCodeElm.innerHTML = e.target.innerText;
@@ -132,13 +116,26 @@ currencyItemElm.addEventListener("click", (e) => {
 
 })
 
-// showing the currency list
-showCurrencyList();
 
 
 // ========================================
 // search functionality
+const search = document.getElementById("search");
+search.addEventListener("keyup", (e) => {
+    const filteredItem = e.target.value;
+    console.log(filteredItem);
 
+    const fl = currencyList.filter((item) => {
+        return item.toLowerCase().includes(filteredItem.toLowerCase());
+    })
+    // console.log(100, currencyList);
+
+
+    currencyItemElm.innerHTML = "";
+
+    showCurrencyList(fl);
+
+})
 
 
 // ==============================================
